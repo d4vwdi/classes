@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ContaCorrenteController {
     @GetMapping
     public String exibirFormularioEscolherPlano() {
-        return "cadastro"; // Isso corresponderá ao nome do seu arquivo HTML, por exemplo, "cadastro.html"
+        return "cadastro"; // Isso corresponderá ao nome do seu arquivo HTML, por exemplo, "cadastro.html".
     }
 }
