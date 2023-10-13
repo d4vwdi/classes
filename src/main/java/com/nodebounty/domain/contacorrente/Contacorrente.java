@@ -22,15 +22,17 @@ import lombok.NoArgsConstructor;
 public class Contacorrente {
     @Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "ID")
+	@Column(name = "IDCONTA")
 	private String idConta;
+    
+    
     @OneToOne // Indica o relacionamento 1:1, ou seja, uma conta corrente está associada a um único plano
     @JoinColumn(name = "PLANOSELECIONADO", referencedColumnName = "IDPLANO") // A referência precisa ser necessariamente o nome da tabela,
     																		  //  Neste caso "ID_PLANO", como está definida em @Column de Plano.java
     private Plano planosConta; // Alterado para o tipo Plano
 	@Column
 	private double saldo;
-	@Column
+	@Column(name = "IDCARTAO")
 	private String idCartao;
 	
 	
