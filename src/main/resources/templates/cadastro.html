@@ -13,11 +13,6 @@
 
         <br>
 
-        <label for="saldo">Saldo:</label>
-        <input type="text" name="saldo">
-
-        <br>
-
         <input type="submit" value="Cadastrar Conta">
     </form>
 
@@ -27,13 +22,11 @@
             e.preventDefault();
 
             const selectedPlano = document.querySelector('input[name="plano"]:checked');
-            const saldo = document.querySelector('input[name="saldo"]').value;
 
-            if (selectedPlano && saldo) {
+            if (selectedPlano) {
                 // Enviar os dados para o Spring Boot
                 const data = {
-                    plano: selectedPlano.value,
-                    saldo: saldo
+                    plano: selectedPlano.value
                 };
 
                 fetch('/cadastrar-conta', {
@@ -51,7 +44,7 @@
                     }
                 });
             } else {
-                alert('Por favor, selecione um plano e insira o saldo.');
+                alert('Por favor, selecione um plano.');
             }
         });
     </script>
