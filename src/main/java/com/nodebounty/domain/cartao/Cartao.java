@@ -28,8 +28,8 @@ import lombok.NoArgsConstructor;
 public class Cartao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "ID")
-	private String id;
+	@Column(name = "IDCARTAO")
+	private String idCartao;
 	@Column(name = "TITULARCARTAO")
 	private String titularCartao;
 	@Column(name = "VALIDADECARTAO")

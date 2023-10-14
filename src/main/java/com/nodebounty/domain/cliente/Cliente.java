@@ -27,8 +27,8 @@ public class Cliente {
 	 * não é um valor atribuido pelo usuário
 	 */
 	
-	@Id @GeneratedValue(strategy = GenerationType.UUID) @Column(name = "ID")
-	private String id;
+	@Id @GeneratedValue(strategy = GenerationType.UUID) @Column(name = "IDCLIENTE")
+	private String idCliente;
 	@Column(name = "NOME")
 	private String nome;
 	@Column(name = "ENDERECO")

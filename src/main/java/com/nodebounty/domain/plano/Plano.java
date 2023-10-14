@@ -24,14 +24,14 @@ public class Plano {
     @Column(name = "IDPLANO")
     private Long idPlano;
 
-    @Column(name = "NOME")
-    private String nome;
+    @Column(name = "NOMEPLANO")
+    private String nomePlano;
 
-    @Column(name = "PORCENTAGEMCASHBACK")
-    private double porcentagemCashback;
+    @Column(name = "PORCENTAGEMCASHBACKPLANO")
+    private double porcentagemCashbackPlano;
 
-    @Column(name = "PARCERIAS")
-    private String parcerias;
+    @Column(name = "PARCERIASPLANO")
+    private String parceriasPlano;
 
 
 }

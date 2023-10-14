@@ -37,21 +37,21 @@ public class LoadDatabase {
 			
 			Plano beauty = new Plano();
 //			beauty.setIdPlano(null);
-			beauty.setNome("Beauty");
-			beauty.setPorcentagemCashback(5.00);
-			beauty.setParcerias("MAC, MakeB, Vult");
+			beauty.setNomePlano("Beauty");
+			beauty.setPorcentagemCashbackPlano(5.00);
+			beauty.setParceriasPlano("MAC, MakeB, Vult");
 			
 			Plano health = new Plano();
 //			health.setIdPlano(null);
-			health.setNome("Health");
-			health.setPorcentagemCashback(5.00);
-			health.setParcerias("Growth, OficialFarma, Drogasil");
+			health.setNomePlano("Health");
+			health.setPorcentagemCashbackPlano(5.00);
+			health.setParceriasPlano("Growth, OficialFarma, Drogasil");
 			
 			Plano tech = new Plano();
 //			tech.setIdPlano(null);
-			tech.setNome("Tech");
-			tech.setPorcentagemCashback(5.00);
-			tech.setParcerias("KaBum, Pichau, TeraByte Shop");
+			tech.setNomePlano("Tech");
+			tech.setPorcentagemCashbackPlano(5.00);
+			tech.setParceriasPlano("KaBum, Pichau, TeraByte Shop");
 			
 		repositoryPlanos.saveAll(Arrays.asList(beauty, health, tech));
 			

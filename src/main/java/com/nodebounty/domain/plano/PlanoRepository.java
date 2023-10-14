@@ -1,15 +1,17 @@
 package com.nodebounty.domain.plano;
 
+import com.nodebounty.domain.plano.Plano;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-/* Os repository geralmente não tem nada dentro. Caso a gente precise buscar por um registro, utilizando outro campo diferente
- * do id, aí sim pode criar um método aqui. Por exemplo, o que estava aqui antes: findAllByNome(). O Spring automáticamente
- * Vai saber que vai ter esse método no repository, que vai querer buscar um registro no banco pelo nome, e vai criar uma query do tipo:
- * SELECT FROM PLANO WHERE NOME = 'NOME';
- * No momento, como o nome e o ID viraram a mesma coisa, então só usar o findById() mesmo
- */
+import java.util.List;
 
 @Repository
-public interface PlanoRepository extends JpaRepository<Plano, String> {
+public interface PlanoRepository extends JpaRepository<Plano, Long> {
+
+    // Consulta personalizada para buscar planos por nome
+    @Query("SELECT p FROM Plano p WHERE p.nomePlano = :nomes")
+    Plano findByNomePlano(@Param("nomes") String nome);
 }

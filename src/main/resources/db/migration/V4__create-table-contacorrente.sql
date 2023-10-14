@@ -1,6 +1,7 @@
 CREATE TABLE contacorrente (
-idconta TEXT PRIMARY KEY UNIQUE NOT NULL,
-planoselecionado VARCHAR(255),
-saldo DOUBLE,
-idCartao VARCHAR(255)
+idCliente VARCHAR(255),
+idConta TEXT PRIMARY KEY UNIQUE NOT NULL,
+idCartao VARCHAR(255),
+planoSelecionado VARCHAR(255),
+saldoConta DOUBLE
 );

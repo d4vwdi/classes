@@ -1,13 +1,13 @@
 CREATE TABLE planos (
     idPlano BIGINT PRIMARY KEY AUTO_INCREMENT,
-    nome text,
-    porcentagemCashback DOUBLE,
-    parcerias TEXT
+    nomePlano text,
+    porcentagemCashbackPlano DOUBLE,
+    parceriasPlano TEXT
 );
 
 
 CREATE TABLE cartoes (
-	id TEXT PRIMARY KEY UNIQUE NOT NULL,
+	idCartao TEXT PRIMARY KEY UNIQUE NOT NULL,
 	titularCartao TEXT NOT NULL,
 	validadeCartao DATE NOT NULL,
 	numeroCartao VARCHAR(16) NOT NULL UNIQUE,
