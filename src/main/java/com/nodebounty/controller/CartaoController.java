@@ -22,7 +22,7 @@ public class CartaoController {
 	@GetMapping
 	public ResponseEntity<Object> consultaTodos() {
 		var cartoes = service.listarTodosCartoes();
-		return ResponseEntity.ok(cartoes);
+		return ResponseEntity.ok(cartoes);//teste
 	}
 
 }
