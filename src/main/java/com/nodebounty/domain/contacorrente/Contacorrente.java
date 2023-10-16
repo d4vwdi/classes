@@ -46,9 +46,7 @@ public class Contacorrente {
 	public void setPlanosConta(Plano planosConta) {
 		this.planosConta = planosConta;
 	}
-	public void setSaldo(double saldo) {
-		this.saldoConta = saldoConta;
-	}
+
 	public void setIdCartao(String idCartao) {
 		this.idCartao = idCartao;
 	}

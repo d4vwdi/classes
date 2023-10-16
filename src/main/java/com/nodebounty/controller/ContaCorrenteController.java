@@ -1,6 +1,5 @@
 package com.nodebounty.controller;
 
-import ch.qos.logback.core.model.Model;
 import com.nodebounty.domain.contacorrente.Contacorrente;
 import com.nodebounty.domain.contacorrente.ContacorrenteRepository;
 import com.nodebounty.domain.plano.Plano;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @Controller
 @RequestMapping("/escolherplano")

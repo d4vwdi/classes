@@ -17,57 +17,41 @@ import com.nodebounty.domain.plano.PlanoRepository;
 @Configuration
 public class LoadDatabase {
 
-	@Autowired
-	CartaoRepository repositoryCartao;
-	@Autowired
-	PlanoRepository repositoryPlanos;
-	@Autowired
-	ContacorrenteRepository repositoryConta;
+    @Bean
+    CommandLineRunner initDatabase(
+        PlanoRepository repositoryPlanos, CartaoRepository repositoryCartao, ContacorrenteRepository repositoryConta
+    ) {
+        return args -> {
 
-	@Bean
-	CommandLineRunner initDatabase(PlanoRepository repository) {
-		return args -> {
-			// Salvando planos para testes
-//			Plano Beauty = new Plano("Beauty", 5.00, "MAC, MakeB, Vult");
-//			Plano Tech = new Plano("Tech", 5.00, "KaBum, Pichau, TeraByte Shop");
-//			Plano Health = new Plano("Health", 5.00, "Growth, OficialFarma, Drogasil");
-//
+            Plano beauty = new Plano();
+            beauty.setNomePlano("Beauty");
+            beauty.setPorcentagemCashbackPlano(5.00);
+            beauty.setParceriasPlano("MAC, MakeB, Vult");
 
+            Plano health = new Plano();
+            health.setNomePlano("Health");
+            health.setPorcentagemCashbackPlano(5.00);
+            health.setParceriasPlano("Growth, OficialFarma, Drogasil");
 
-			
-			Plano beauty = new Plano();
-//			beauty.setIdPlano(null);
-			beauty.setNomePlano("Beauty");
-			beauty.setPorcentagemCashbackPlano(5.00);
-			beauty.setParceriasPlano("MAC, MakeB, Vult");
-			
-			Plano health = new Plano();
-//			health.setIdPlano(null);
-			health.setNomePlano("Health");
-			health.setPorcentagemCashbackPlano(5.00);
-			health.setParceriasPlano("Growth, OficialFarma, Drogasil");
-			
-			Plano tech = new Plano();
-//			tech.setIdPlano(null);
-			tech.setNomePlano("Tech");
-			tech.setPorcentagemCashbackPlano(5.00);
-			tech.setParceriasPlano("KaBum, Pichau, TeraByte Shop");
-			
-		repositoryPlanos.saveAll(Arrays.asList(beauty, health, tech));
-			
-			// Salvando cartões para teste
-			
-			LocalDate validade1 = LocalDate.of(2023, 12, 31);
-			LocalDate validade2 = LocalDate.of(2024, 6, 30);
-			LocalDate validade3 = LocalDate.of(2024, 9, 15);
+            Plano tech = new Plano();
+            tech.setNomePlano("Tech");
+            tech.setPorcentagemCashbackPlano(5.00);
+            tech.setParceriasPlano("KaBum, Pichau, TeraByte Shop");
 
-			Cartao cartao1 = new Cartao(null, "João Silva", validade1, "1234567890123456", (short) 123);
-			Cartao cartao2 = new Cartao(null, "Maria Souza", validade2, "9876543210987654", (short) 456);
-			Cartao cartao3 = new Cartao(null, "José Pereira", validade3, "5555666677778888", (short) 789);
+            repositoryPlanos.saveAll(Arrays.asList(beauty, health, tech));
 
-			repositoryCartao.saveAll(Arrays.asList(cartao1, cartao2, cartao3));
+            // Salvando cartões para teste
 
-		};
-	}
+            LocalDate validade1 = LocalDate.of(2023, 12, 31);
+            LocalDate validade2 = LocalDate.of(2024, 6, 30);
+            LocalDate validade3 = LocalDate.of(2024, 9, 15);
 
+            Cartao cartao1 = new Cartao(null, "João Silva", validade1, "1234567890123456", (short) 123);
+            Cartao cartao2 = new Cartao(null, "Maria Souza", validade2, "9876543210987654", (short) 456);
+            Cartao cartao3 = new Cartao(null, "José Pereira", validade3, "5555666677778888", (short) 789);
+
+            repositoryCartao.saveAll(Arrays.asList(cartao1, cartao2, cartao3));
+        };
+    }
 }
+

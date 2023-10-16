@@ -1,12 +1,12 @@
 package com.nodebounty.domain.plano;
 
-import com.nodebounty.domain.plano.Plano;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+
 
 @Repository //Esta anotação é usada para indicar que a interface PlanoRepository é um componente gerenciado pelo Spring, especificamente um repositório de dados.
             // Os repositórios são usados para acessar e manipular dados do banco de dados de maneira conveniente.
