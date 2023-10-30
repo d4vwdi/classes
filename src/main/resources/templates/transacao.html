@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Transação</title>
+</head>
+<body>
+    <h1>Transações</h1>
+
+    <h2>Saque</h2>
+    <input type="text" id="saqueInput" placeholder="Valor de saque">
+    <button onclick="realizarSaque()">Saque</button>
+
+    <h2>Depósito</h2>
+    <input type="text" id="depositoInput" placeholder="Valor de depósito">
+    <button onclick="realizarDeposito()">Depósito</button>
+
+    <h2>Transferência</h2>
+    <input type="text" id="transferenciaInput" placeholder="Valor de transferência">
+    <button onclick="realizarTransferencia()">Transferência</button>
+
+    <script>
+        function realizarSaque() {
+            var valorSaque = parseFloat(document.getElementById("saqueInput").value);
+            if (isNaN(valorSaque) || valorSaque <= 0) {
+                alert("Valor de saque inválido");
+            } else {
+                alert("Saque de R$" + valorSaque + " realizado com sucesso.");
+            }
+        }
+
+        function realizarDeposito() {
+            var valorDeposito = parseFloat(document.getElementById("depositoInput").value);
+            if (isNaN(valorDeposito) || valorDeposito <= 0) {
+                alert("Valor de depósito inválido");
+            } else {
+                alert("Depósito de R$" + valorDeposito + " realizado com sucesso.");
+            }
+        }
+
+        function realizarTransferencia() {
+            var valorTransferencia = parseFloat(document.getElementById("transferenciaInput").value);
+            if (isNaN(valorTransferencia) || valorTransferencia <= 0) {
+                alert("Valor de transferência inválido");
+            } else {
+                alert("Transferência de R$" + valorTransferencia + " realizada com sucesso.");
+            }
+        }
+    </script>
+</body>
+</html>
