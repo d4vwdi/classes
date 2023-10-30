@@ -37,8 +37,7 @@ public class Contacorrente {
     private Plano planosConta; // Alterado para o tipo Plano
 
 	@Column(name = "SALDOCONTA")
-	private double saldoConta;
-
+	protected double saldoConta = 0.0;
 
 	
 	
@@ -46,12 +45,44 @@ public class Contacorrente {
 	public void setPlanosConta(Plano planosConta) {
 		this.planosConta = planosConta;
 	}
-	public void setSaldo(double saldo) {
+	public void setSaldoConta(Double saldoConta) {
 		this.saldoConta = saldoConta;
 	}
 	public void setIdCartao(String idCartao) {
 		this.idCartao = idCartao;
 	}
 
+/* Transações */
+	
+	public void sacar(double valor) {
+        if (valor > 0 && valor <= saldoConta) {
+            saldoConta -= valor;
+            System.out.println("Saque de " + valor + " realizado com sucesso na conta.");
+            System.out.println("Saldo atual da conta: " + saldoConta);
+        } else {
+            throw new IllegalArgumentException("Saldo insuficiente para saque.");
+        }
+    }
+
+    public void depositar(double valor) {
+        if (valor > 0) {
+            saldoConta += valor;
+            System.out.println("Depósito de " + valor + " realizado com sucesso na conta.");
+            System.out.println("Saldo atual da conta: " + saldoConta);
+        } else {
+            throw new IllegalArgumentException("Valor inválido para depósito.");
+        }
+    }
+
+    public void transferir(Contacorrente contaDestino, double valor) {
+        if (valor > 0 && valor <= saldoConta) {
+            saldoConta -= valor;
+            contaDestino.depositar(valor);
+            System.out.println("Transferência de " + valor + " realizada com sucesso da conta para a conta de destino.");
+            System.out.println("Saldo atual da conta de origem: " + saldoConta);
+        } else {
+            throw new IllegalArgumentException("Não foi possível realizar a transferência devido a saldo insuficiente.");
+        }
+    }
 
 }
