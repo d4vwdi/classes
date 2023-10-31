@@ -4,45 +4,56 @@
     <title>Página de Transação</title>
 </head>
 <body>
+    <h2 id="saldoConta">Saldo atual: <span th:text="${conta1.saldoConta}"></span></h2>
     <h1>Transações</h1>
-
-    <h2>Saque</h2>
+    
+     <h2>Saque</h2>
     <input type="text" id="saqueInput" placeholder="Valor de saque">
     <button onclick="realizarSaque()">Saque</button>
-
+    
     <h2>Depósito</h2>
     <input type="text" id="depositoInput" placeholder="Valor de depósito">
     <button onclick="realizarDeposito()">Depósito</button>
 
-    <h2>Transferência</h2>
-    <input type="text" id="transferenciaInput" placeholder="Valor de transferência">
-    <button onclick="realizarTransferencia()">Transferência</button>
-
+    
+    
     <script>
-        function realizarSaque() {
-            var valorSaque = parseFloat(document.getElementById("saqueInput").value);
-            if (isNaN(valorSaque) || valorSaque <= 0) {
-                alert("Valor de saque inválido");
-            } else {
-                alert("Saque de R$" + valorSaque + " realizado com sucesso.");
-            }
-        }
-
         function realizarDeposito() {
             var valorDeposito = parseFloat(document.getElementById("depositoInput").value);
             if (isNaN(valorDeposito) || valorDeposito <= 0) {
                 alert("Valor de depósito inválido");
             } else {
-                alert("Depósito de R$" + valorDeposito + " realizado com sucesso.");
+                // Extrair o saldo atual (removendo o texto "Saldo atual: ")
+                var saldoContaElement = document.getElementById("saldoConta").textContent;
+                var saldoConta = parseFloat(saldoContaElement.split(" ")[2]);
+                
+                // Calcular o novo saldo
+                var novoSaldo = saldoConta + valorDeposito;
+                
+                // Atualizar o elemento com o novo saldo
+                document.getElementById("saldoConta").textContent = "Saldo atual: " + novoSaldo;
             }
         }
-
-        function realizarTransferencia() {
-            var valorTransferencia = parseFloat(document.getElementById("transferenciaInput").value);
-            if (isNaN(valorTransferencia) || valorTransferencia <= 0) {
-                alert("Valor de transferência inválido");
+        
+                function realizarSaque() {
+            var valorSaque = parseFloat(document.getElementById("saqueInput").value);
+            if (isNaN(valorSaque) || valorSaque <= 0) {
+                alert("Valor de saque inválido");
             } else {
-                alert("Transferência de R$" + valorTransferencia + " realizada com sucesso.");
+                // Extrair o saldo atual (removendo o texto "Saldo atual: ")
+                var saldoContaElement = document.getElementById("saldoConta").textContent;
+                var saldoConta = parseFloat(saldoContaElement.split(" ")[2]);
+                
+                // Verificar se há saldo suficiente para saque
+                if (valorSaque > saldoConta) {
+                    alert("Saldo insuficiente para saque");
+                } else {
+                    // Calcular o novo saldo após o saque
+                    var novoSaldo = saldoConta - valorSaque;
+                    
+                    // Atualizar o elemento com o novo saldo
+                    document.getElementById("saldoConta").textContent = "Saldo atual: " + novoSaldo;
+                }
             }
         }
     </script>
