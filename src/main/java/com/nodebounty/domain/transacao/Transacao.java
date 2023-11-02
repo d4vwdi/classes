@@ -1,6 +1,42 @@
-package com.nodebounty.domain.contacorrente;
+package com.nodebounty.domain.transacao;
 
+import com.nodebounty.domain.contacorrente.Contacorrente;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Entity
+@Table(name = "TRANSACAO")
 public class Transacao {
+	/* Definição dos atributos pertencentes à entidade Transação */
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "IDTRANSACAO")
+	private String idTransacao;
+    @ManyToOne
+    @JoinColumn(name = "IDCONTA")
+    private Contacorrente contacorrente;
+	@Column(name = "DATATRANSACAO")
+	private String dataTransacao;
+	@Column(name = "HORATRANSACAO")
+	private String horaTransacao;
+	@Column(name = "VALORTRANSACAO")
+	private String valorTransacao;
+	
+	
+	
 
     public void TesteSaque() {
     	// Cria duas instâncias da classe ContaCorrente e define o saldo inicial de cada uma para fins de teste

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.nodebounty.domain.cartao.Cartao;
 import com.nodebounty.domain.cartao.CartaoRepository;
+import com.nodebounty.domain.contacorrente.Contacorrente;
 import com.nodebounty.domain.contacorrente.ContacorrenteRepository;
 import com.nodebounty.domain.plano.Plano;
 import com.nodebounty.domain.plano.PlanoRepository;
@@ -65,7 +66,32 @@ public class LoadDatabase {
 			Cartao cartao2 = new Cartao(null, "Maria Souza", validade2, "9876543210987654", (short) 456);
 			Cartao cartao3 = new Cartao(null, "José Pereira", validade3, "5555666677778888", (short) 789);
 
-			repositoryCartao.saveAll(Arrays.asList(cartao1, cartao2, cartao3));
+		repositoryCartao.saveAll(Arrays.asList(cartao1, cartao2, cartao3));
+		
+		// ... Seu código existente para salvar planos e cartões
+
+		Contacorrente conta1 = new Contacorrente();
+		conta1.setSaldoConta(100.0);
+
+		Contacorrente conta2 = new Contacorrente();
+		conta2.setSaldoConta(200.0);
+
+		Contacorrente conta3 = new Contacorrente();
+		conta3.setSaldoConta(300.0);
+
+		Contacorrente conta4 = new Contacorrente();
+		conta4.setSaldoConta(400.0);
+		
+		Contacorrente conta5 = new Contacorrente();
+		conta5.setSaldoConta(500.0);
+		
+		Contacorrente conta6 = new Contacorrente();
+		conta6.setSaldoConta(600.0);
+		// Remova a configuração manual do campo ordemCriacao
+
+		// Salve as contas correntes no banco de dados
+		repositoryConta.saveAll(Arrays.asList(conta1, conta2, conta3, conta4, conta5, conta6));
+
 
 		};
 	}

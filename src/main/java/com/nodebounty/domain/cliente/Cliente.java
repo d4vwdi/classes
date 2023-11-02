@@ -1,11 +1,12 @@
 package com.nodebounty.domain.cliente;
 
+import com.nodebounty.domain.contacorrente.Contacorrente;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -15,11 +16,10 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Table(name = "CLIENTES")
 @Entity
 @Getter
-@EqualsAndHashCode(of = "id") /* Seleciona a chave primária da tabela em questão */
+@EqualsAndHashCode(of = "idCliente") /* Seleciona a chave primária da tabela em questão */
 
 public class Cliente {
 	
@@ -49,6 +49,8 @@ public class Cliente {
 	private String email;
 	@Column(name = "SENHA")
 	private String senha;
+    @OneToOne(mappedBy = "cliente")
+    private Contacorrente contaCorrente;
 
 
 
@@ -66,6 +68,7 @@ public class Cliente {
 		this.telefone = requestClientes.telefone();
 		this.email = requestClientes.email();
 		this.senha = requestClientes.senha();
+		this.contaCorrente = new Contacorrente();
 	}
 	
 	/* Método para atualizar cliente com base nos dados recebidos pelo controller 

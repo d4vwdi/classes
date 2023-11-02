@@ -3,7 +3,7 @@ package com.nodebounty;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.nodebounty.domain.contacorrente.Transacao;
+import com.nodebounty.domain.transacao.Transacao;
 
 
 @SpringBootApplication

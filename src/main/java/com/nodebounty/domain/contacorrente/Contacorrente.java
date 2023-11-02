@@ -31,14 +31,18 @@ public class Contacorrente {
 	@Column(name = "IDCARTAO")
 	private String idCartao;
 
+
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long ordemCriacao;
+
+
     @OneToOne // Indica o relacionamento 1:1, ou seja, uma conta corrente está associada a um único plano
     @JoinColumn(name = "PLANOSELECIONADO", referencedColumnName = "IDPLANO") // A referência precisa ser necessariamente o nome da tabela,
     																		  //  Neste caso "ID_PLANO", como está definida em @Column de Plano.java
     private Plano planosConta; // Alterado para o tipo Plano
 
 	@Column(name = "SALDOCONTA")
-	protected double saldoConta = 0.0;
-
+	protected double saldoConta = 0.0;	
 	
 	
 	
@@ -51,6 +55,8 @@ public class Contacorrente {
 	public void setIdCartao(String idCartao) {
 		this.idCartao = idCartao;
 	}
+
+	
 
 /* Transações */
 	
@@ -84,5 +90,6 @@ public class Contacorrente {
             throw new IllegalArgumentException("Não foi possível realizar a transferência devido a saldo insuficiente.");
         }
     }
+
 
 }

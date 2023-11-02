@@ -5,11 +5,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.nodebounty.domain.contacorrente.Contacorrente;
+import com.nodebounty.domain.contacorrente.ContacorrenteRepository;
 
 @Controller
 
 public class TransacaoController {
+	
+    private final ContacorrenteRepository contacorrenteRepository;
 
+    public TransacaoController(ContacorrenteRepository contacorrenteRepository) {
+        this.contacorrenteRepository = contacorrenteRepository;
+    }
     @GetMapping("/transacao")
     public String transacaoPage(Model model) {
         Contacorrente conta1 = new Contacorrente();
